@@ -12,7 +12,7 @@ const TestAPI = ({ searchQuery }) => {
     if (!searchQuery) return;
 
       const fetchBook = async () => {
-      setLoading(true); // Start loading when fetching
+        setLoading(true); // Start loading when fetching
 
       try {
         const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`);
