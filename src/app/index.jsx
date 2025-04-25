@@ -76,7 +76,7 @@ export default function App() {
               className="bg-secondary-200 rounded-full border p-3 text-gray-900 mt-4"
             />
 
-            <Link href="/profile" asChild>
+            <Link href="/homepage" asChild>
               <TouchableOpacity className="bg-secondary-200 py-3 rounded-full shadow-md mt-6 active:opacity-75">
                 <Text className="text-lg font-semibold text-center text-gray-900">Log In</Text>
               </TouchableOpacity>

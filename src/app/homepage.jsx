@@ -1,11 +1,12 @@
 import '../../global.css'
 import { Text, View, TextInput, TouchableOpacity, ScrollView, Image} from 'react-native'
 import React, { useState } from 'react'
-import TestAPI from '../components/test'
+import TestAPI2 from '../components/test2';
 
 const profile = () => {
-  const [bookTitle, setBookTitle] = useState(""); // State to store user input
+  // const [bookTitle, setBookTitle] = useState(""); // State to store user input
   const [searchQuery, setSearchQuery] = useState(""); // State to trigger API search
+ 
 
 
 
@@ -30,14 +31,19 @@ const profile = () => {
         <TextInput
           className="border border-gray-300 w-64 p-3 mt-4 rounded-lg text-lg"
           placeholder="Enter book title"
-          value={bookTitle}
-          onChangeText={setBookTitle}
+          value={searchQuery}
+          onChangeText={(text) => setSearchQuery(text)}
         />
-        <TouchableOpacity className="bg-secondary-200 px-6 py-3 mt-4 rounded-full" onPress={() => setSearchQuery(bookTitle)}>
+        <View className="flex-row justify-evenly w-full mt-2 space-x-4">
+          {/* <TouchableOpacity className="bg-secondary-200 px-6 py-3 mt-4 rounded-full" onPress={() => { setSearchQuery(bookTitle); setBookTitle("") }}>
           <Text className="text-white text-lg font-semibold">Search</Text>
+        </TouchableOpacity> */}
+
+        <TouchableOpacity className="bg-secondary-200 px-6 py-3 mt-4 rounded-full" onPress={() => setSearchQuery("")}>
+          <Text className="text-white text-lg font-semibold">Reset</Text>
         </TouchableOpacity>
-        
-        <TestAPI searchQuery={searchQuery} />
+        </View>
+        <TestAPI2 searchQuery={searchQuery} />
       </View>
 
       {/* Favorite Books Section */}

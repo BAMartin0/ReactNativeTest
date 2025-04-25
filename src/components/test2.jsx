@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator, ScrollView, Modal, Button, TouchableOpacity, Image} from "react-native";
 import axios from "axios";
 
-const TestAPI2 = () => {
+const TestAPI2 = ({searchQuery}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -11,11 +11,14 @@ const TestAPI2 = () => {
 
   useEffect(() => {
     const fetchBook = async () => {
+      if (!searchQuery) {
+        setData([])
+        return
+      };
       setLoading(true);
+
       try {
-        const response = await axios.get(
-          "https://www.googleapis.com/books/v1/volumes?q=LongShot"
-        );
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`);
         setData(response.data.items || []);
       } catch (err) {
         setError(err.message);
@@ -26,7 +29,7 @@ const TestAPI2 = () => {
     };
 
     fetchBook();
-  }, []);
+  }, [searchQuery]);
 
   const selectBook = (book) => {
     setSelectedBook(book);

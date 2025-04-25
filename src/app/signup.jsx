@@ -6,7 +6,6 @@ import TestAPI2 from '../components/test2'
 const signup = () => {
   return (
     <View className="flex-1 items-center justify-center">
-      <Text>signup</Text>
       <TestAPI2/>
     </View>
   )
